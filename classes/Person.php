@@ -15,7 +15,7 @@ class Person
 
             $connector = new Database;
             $conn = $connector->connect();
-            $stmt = $conn->prepare("select * from person");
+            $stmt = $conn->prepare("select * from person limit 10");
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return json_encode(["result" => $result]);
