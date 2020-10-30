@@ -1,0 +1,11 @@
+{
+    "name": "trairat/php-template",
+    "description": "php template",
+    "require": {},
+    "autoload":{
+        "psr-4": {
+            "Model\\": "classes",
+            "Helper\\": "helpers"
+        }
+    }
+}

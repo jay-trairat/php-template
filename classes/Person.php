@@ -1,0 +1,25 @@
+<?php
+
+namespace Model;
+
+use Helper\Database;
+use PDO;
+require_once($_SERVER["DOCUMENT_ROOT"] . "/vendor/autoload.php");
+class Person
+{
+
+    public static function findAll()
+    {
+        try {
+
+            $connector = new Database;
+            $conn = $connector->connect();
+            $stmt = $conn->prepare("select * from person");
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return json_encode(["result" => $result]);
+        } catch (Exception $e) {
+            echo $e;
+        }
+    }
+}
